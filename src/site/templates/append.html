@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+</head>
+<body>
+    <form action="{{ url_for('export',form='append') }}" method="POST">
+        Enter timestamp of entry to append:
+        <input type="number" name="stamp2append" min="10000000000000" max="99999999999999"></input><br>
+        Enter here any comments to append:<br>
+        <textarea name="comment" rows="10" cols="100"></textarea><br>
+        <br><br><br><hr>
+        <input type=submit value="Append this entry">
+    </form>
+</body>
+</html>

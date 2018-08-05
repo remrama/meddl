@@ -1,0 +1,10 @@
+.DS_Store
+*.pyc
+
+SCRATCH.md
+
+data/
+docs/
+lit/
+
+DSR.html

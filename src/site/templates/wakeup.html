@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Morning Wakeup Form</title>
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+
+    <script>
+        function displayWbtbOptions(answer) {
+            if (answer == 1) { // WBTB
+                document.getElementById("wbtb_questions").style.display = "block";
+            } else {
+                document.getElementById("wbtb_questions").style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <h1><center>Morning Wakeup Form</center></h1>
+
+    <form action="{{ url_for('report') }}" method="POST">
+
+        <div id="opening_questions">
+            How many dreams (including white dreams and lost recalls) can you recall?
+            <input type="number" name="recall_count" min="0" max="99" value="0"></input><br>
+            How did you wake up?:
+            <select name="wakeup_type">
+                <option selected value="0">Naturally
+                <option value="1">Alarm clock
+                <option value="2">Other external sound
+                <option value="3">Other
+            </select><br>
+            What LD induction method(s) did you perform?:
+            <select name="ld_method" onchange="displayWbtbOptions(this.value)">
+                <option selected value="0">None
+                <option value="1">WBTB
+            </select><br>
+            <hr>
+        </div>
+
+        <div id="wbtb_questions" style="display:none;">
+            How long were you awake?
+            <input type="number" name="wbtb_gaptime" min="0" max="999" value="0"></input> min<br>
+            What mask did you use?:
+            <select name="mask">
+                <option selected value="0">None
+                <option value="1">SasA mask
+                <option value="2">Remee
+                <option value="3">Mindfold
+            </select><br>
+            Did you re-enter the same dream you woke up from?
+            <select name="reentry">
+                <option selected value="0">No
+                <option value="1">Yes
+                <option value="2">Didn't wake up from a dream
+                <option value="3">Didn't go back into a dream
+            </select><br>
+            <table>
+                <tr>
+                    <th width=50% align=left>What did you do with your gap time?</th>
+                    <th>No</th>
+                    <th>Yes</th>
+                </tr>
+                <tr>
+                    <td align=left>Meditated</td>
+                    <td><input type="radio" name="gap_meditation" value="0" checked></td>
+                    <td><input type="radio" name="gap_meditation" value="1"></td>
+                </tr>
+                <tr>
+                <tr>
+                    <td align=left>Flipped through dream journal</td>
+                    <td><input type="radio" name="gap_view_drm_journal" value="0" checked></td>
+                    <td><input type="radio" name="gap_view_drm_journal" value="1"></td>
+                </tr>
+                <tr>
+                    <td align=left>Wrote in dream journal</td>
+                    <td><input type="radio" name="gap_write_drm_journal" value="0" checked></td>
+                    <td><input type="radio" name="gap_write_drm_journal" value="1"></td>
+                </tr>
+                <tr>
+                    <td align=left>Imagined yourself becoming lucid in recent dream (MILD)</td>
+                    <td><input type="radio" name="gap_mild" value="0" checked></td>
+                    <td><input type="radio" name="gap_mild" value="1"></td>
+                </tr>
+                <tr>
+                    <td align=left>Listened to music/sounds</td>
+                    <td><input type="radio" name="gap_listen_music" value="0" checked></td>
+                    <td><input type="radio" name="gap_listen_music" value="1"></td>
+                </tr>
+                <tr>
+                    <td align=left>Wrote music/sounds</td>
+                    <td><input type="radio" name="gap_write_music" value="0" checked></td>
+                    <td><input type="radio" name="gap_write_music" value="1"></td>
+                </tr>
+            </table><br>
+            Describe in detail anything else about your gap time activity:<br>
+            <textarea name="gap_comments" rows="4" cols="50"></textarea><br>
+            <hr>
+        </div>
+
+        <div id="end">
+            Enter any miscellaneous comments here:<br>
+            <textarea name="comment" rows="4" cols="50"></textarea>
+            <hr>
+            <input type=submit value="Submit">
+        </div>
+
+    </form>
+
+</body>
+
+</html>

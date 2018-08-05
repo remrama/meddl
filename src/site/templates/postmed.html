@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Post-meditation Form</title>
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+
+<body>
+
+    <h1><center>Post-meditation Form</center></h1>
+
+    <form action="{{ url_for('export',form='postmed') }}" method="POST">
+
+        <div id="opening_questions">
+            How long did you meditate?
+            <input type="number" name="med_length" min="0" max="999"></input>minutes<br>
+            Where did you meditate?
+            <select name="med_loc">
+                <option selected value="1">Home
+                <option value="1">Campus
+                <option value="2">Other
+            </select><br>
+            What audio did you listen to?
+            <select name="med_listen">
+                <option selected value="0">None
+                <option value="1">Music/sounds
+                <option value="2">Personal music/sounds
+                <option value="3">Live personal music/sounds
+                <option value="4">Meditation tape (instructions/mantra)
+            </select><br>
+        </div>
+
+        <div id="TMS">
+            {% include 'scales/meditation/TMS.html' %}
+        </div>
+        <div id="SMS">
+            {% include 'scales/meditation/SMS.html' %}
+        </div>
+        <div id="SMAAS">
+            {% include 'scales/meditation/SMAAS.html' %}
+        </div>
+        <div id="WSRM">
+            {% include 'scales/meditation/WSRM.html' %}
+        </div>
+
+        <div id="end">
+            <br><br><br><hr>
+            Enter any miscellaneous comments here:<br>
+            <textarea name="comment" rows="4" cols="50"></textarea><br>
+            <input type=submit value="Save meditation report">
+        </div>
+
+    </form>
+
+</body>
+
+</html>

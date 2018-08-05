@@ -1,0 +1,272 @@
+<h3><center>Mannheim Dream Questionnaire</center></h3>
+
+
+<!-- I REVERSED THE REVERSE CODING OPTS -- MAYBE DONT DO THAT -->
+<!-- MAYBE make the  many repeated options into another table -->
+
+Age: <input type="number" name="age" min="0" max="99"></input> years<br>
+
+Gender: 
+<select name="gender">
+    <option selected value="0">Unspecified
+    <option value="1">Female
+    <option value="2">Male
+</select><br>
+
+Occupation: <input type="text" name="occupation"></input><br>
+
+How often have you recalled your dreams recently (in the past several months)?
+<select name="MADRE_recall">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a month
+    <option value="2">about once a month
+    <option value="3">two or three times a month
+    <option value="4">about once a week
+    <option value="5">several times a week
+    <option value="6">almost every morning
+</select><br>
+
+How intense are your dreams emotionally?
+<select name="MADRE_emo_intense">
+    <option selected value="">?
+    <option value="0">Not at all intense
+    <option value="1">Not that intense
+    <option value="2">Somewhat intense
+    <option value="3">Quite intense
+    <option value="4">Very intense
+</select><br>
+
+What is the emotional tone of your dreams on average?
+<select name="MADRE_emo_tone">
+    <option selected value="">?
+    <option value="1">Very negative
+    <option value="2">Somewhat negative
+    <option value="3">Neutral
+    <option value="4">Somewhat positive
+    <option value="5">Very positive
+</select><br>
+
+How often have you experienced nightmares recently (in the past several months)?<br>
+<b>Definition:</b> <i>Nightmares are dreams with strong negative emotions that result in awakening from the dreams. The dream plot can be recalled very vividly upon awakening.</i>
+<select name="MADRE_nm_freq">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+If you currently experience nightmares, how distressing are they to you?
+<select name="MADRE_nm_intense">
+    <option selected value="">?
+    <option value="0">Not at all distressing
+    <option value="1">Not that distressing
+    <option value="2">Somewhat distressing
+    <option value="3">Quite distressing
+    <option value="4">Very distressing
+</select><br>
+
+Do you experience recurring nightmares that relate to a situation that you have experienced in your waking life?
+<select name="MADRE_nm_recurrence">
+    <option selected value="">?
+    <option value="0">No
+    <option value="1">Yes
+</select><br>
+
+How many of your nightmares are recurrent ones (in percent)? 
+<input type="number" name="MADRE_nm_recurr_percent" min="0" max="100"></input>%<br>
+
+How often did you experience nightmares during your childhood (from 6 to 12 year of age)?
+<select name="MADRE_nm_childhood">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+How often do you experience so-called lucid dreams (see definition)?<br>
+<b>Definition:</b> <i>In a lucid dream, one is aware that one is dreaming during the dream. Thus it is possible to wake up deliberately, or to influence the action of the dream actively, or to observe the course of the dream passively.</i>
+<select name="MADRE_ld_freq">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+If you have experienced lucid dreams, how old were you when they occurred the first time?
+<input type="number" name="MADRE_ld_age" min="0" max="100"></input><br>
+
+Attitude towards dreams
+<table>
+    <tr>
+        <th width=50%></th>
+        <th>Not at<br>all</th>
+        <th>Not that<br>much</th>
+        <th>Partly</th>
+        <th>Somewhat</th>
+        <th>Totally</th>
+    </tr>
+    <tr>
+        <td align=left>How much meaning to you attribute to your dreams?</td>
+        <td><input type="radio" name="MADRE01" value="0"></td>
+        <td><input type="radio" name="MADRE01" value="1"></td>
+        <td><input type="radio" name="MADRE01" value="2"></td>
+        <td><input type="radio" name="MADRE01" value="3"></td>
+        <td><input type="radio" name="MADRE01" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>How strong is your interest in dreams?</td>
+        <td><input type="radio" name="MADRE02" value="0"></td>
+        <td><input type="radio" name="MADRE02" value="1"></td>
+        <td><input type="radio" name="MADRE02" value="2"></td>
+        <td><input type="radio" name="MADRE02" value="3"></td>
+        <td><input type="radio" name="MADRE02" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>I think that dreams are meaningful.</td>
+        <td><input type="radio" name="MADRE03" value="0"></td>
+        <td><input type="radio" name="MADRE03" value="1"></td>
+        <td><input type="radio" name="MADRE03" value="2"></td>
+        <td><input type="radio" name="MADRE03" value="3"></td>
+        <td><input type="radio" name="MADRE03" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>I want to know more about dreams.</td>
+        <td><input type="radio" name="MADRE04" value="0"></td>
+        <td><input type="radio" name="MADRE04" value="1"></td>
+        <td><input type="radio" name="MADRE04" value="2"></td>
+        <td><input type="radio" name="MADRE04" value="3"></td>
+        <td><input type="radio" name="MADRE04" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>If somebody can recall and interpret his/her dreams, his/her life will be enriched.</td>
+        <td><input type="radio" name="MADRE05" value="0"></td>
+        <td><input type="radio" name="MADRE05" value="1"></td>
+        <td><input type="radio" name="MADRE05" value="2"></td>
+        <td><input type="radio" name="MADRE05" value="3"></td>
+        <td><input type="radio" name="MADRE05" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>I think that dreaming is in general a very interesting phenomenon.</td>
+        <td><input type="radio" name="MADRE06" value="0"></td>
+        <td><input type="radio" name="MADRE06" value="1"></td>
+        <td><input type="radio" name="MADRE06" value="2"></td>
+        <td><input type="radio" name="MADRE06" value="3"></td>
+        <td><input type="radio" name="MADRE06" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>A person who reflects on her/his dreams is certainly able to learn more about her/himself.</td>
+        <td><input type="radio" name="MADRE07" value="0"></td>
+        <td><input type="radio" name="MADRE07" value="1"></td>
+        <td><input type="radio" name="MADRE07" value="2"></td>
+        <td><input type="radio" name="MADRE07" value="3"></td>
+        <td><input type="radio" name="MADRE07" value="4"></td>
+    </tr>
+    <tr>
+        <td align=left>Do you have the impression that dreams provide impulses or pointers for your waking life?</td>
+        <td><input type="radio" name="MADRE08" value="0"></td>
+        <td><input type="radio" name="MADRE08" value="1"></td>
+        <td><input type="radio" name="MADRE08" value="2"></td>
+        <td><input type="radio" name="MADRE08" value="3"></td>
+        <td><input type="radio" name="MADRE08" value="4"></td>
+    </tr>
+</table><br>
+
+How often to you tell your dreams to others?
+<select name="MADRE_share">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+How often do you record your dreams?
+<select name="MADRE_record">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+How often do your dreams affect your mood during the day?
+<select name="MADRE_affect">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+How often do your dreams give you creative ideas?
+<select name="MADRE_creative">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+How often do you experience Deja vus (see definition)?<br>
+<b>Definition:</b> <i>During a deja vu experience one is convinced one is reliving a real-life situation that was already experienced in a dream.</i>
+<select name="MADRE_dejavu">
+    <option selected value="">?
+    <option value="0">never
+    <option value="1">less than once a year
+    <option value="2">about once a year
+    <option value="3">about two to four times a year
+    <option value="4">about once a month
+    <option value="5">two to three times a month
+    <option value="6">about once a week
+    <option value="7">several times a week
+</select><br>
+
+Have you ever read something on the topic of dreams?
+<select name="MADRE_read">
+    <option selected value="">?
+    <option value="0">No
+    <option value="1">One to two times
+    <option value="2">Several times
+</select><br>
+
+Did the literature about dreaming / dream interpretation help you to better understand your dreams?
+<select name="MADRE_read_influence">
+    <option selected value="">?
+    <option value="0">Not at all
+    <option value="1">Not that much
+    <option value="2">Somewhat
+    <option value="2">Quite
+    <option value="2">Very much
+</select><br>

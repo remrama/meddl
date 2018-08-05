@@ -1,0 +1,255 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <title>Report Form</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+
+    <script>
+        // JS functions for displaying conditional form options
+        function displayDreamOptions(answer) { // called from dream type
+            // Display nothing if a white dream,
+            // some dream questions if a non-lucid dream,
+            // and additionally some lucidity stuff if any lucidity.
+            if (answer == 1 || answer == 2) { // white dream or lost recall, turn off everything
+                document.getElementById("dream_questions").style.display = "none";
+                document.getElementById("ld_questions").style.display = "none";
+                document.getElementById("MLA").style.display = "none";
+                document.getElementById("DLQ").style.display = "none";
+                document.getElementById("MACE").style.display = "none";
+                document.getElementById("LuCiD").style.display = "none";
+                document.getElementById("DSR").style.display = "none";
+                document.getElementById("MUSK").style.display = "none";
+            } else if (answer == 3) { // NL-D fragment, reveal only dream questions
+                document.getElementById("dream_questions").style.display = "block";
+                document.getElementById("ld_questions").style.display = "none";
+                document.getElementById("MLA").style.display = "none";
+                document.getElementById("DLQ").style.display = "none";
+                document.getElementById("MACE").style.display = "none";
+                document.getElementById("LuCiD").style.display = "none";
+                document.getElementById("DSR").style.display = "none";
+                document.getElementById("MUSK").style.display = "none";
+            } else if (answer == 4) { // non-lucid dream, reveal a bit
+                document.getElementById("dream_questions").style.display = "block";
+                document.getElementById("ld_questions").style.display = "none";
+                document.getElementById("MLA").style.display = "block";
+                document.getElementById("DLQ").style.display = "block";
+                document.getElementById("MACE").style.display = "block";
+                document.getElementById("LuCiD").style.display = "block";
+                document.getElementById("DSR").style.display = "none";
+                document.getElementById("MUSK").style.display = "none";
+            } else { // must be either semi or full lucid
+                document.getElementById("dream_questions").style.display = "block";
+                document.getElementById("ld_questions").style.display = "block";
+                document.getElementById("MLA").style.display = "block";
+                document.getElementById("DLQ").style.display = "block";
+                document.getElementById("MACE").style.display = "block";
+                document.getElementById("LuCiD").style.display = "block";
+                document.getElementById("DSR").style.display = "block";
+                document.getElementById("MUSK").style.display = "block";
+            }
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+    <h1><center>Report Form</center></h1>
+    <h2><center>Dream Number {{ dream_num }} / {{ dream_total }}</center></h2>
+
+    <form action="{{ url_for('report') }}" method="POST">
+
+        <div id="opening_questions">
+            Dream type:
+            <select name="dream_type" onchange="displayDreamOptions(this.value)">
+                <option selected value="">?
+                <option value="1">White dream
+                <option value="2">Non-lucid dream (lost recall)
+                <option value="3">Non-lucid dream (fragment)
+                <option value="4">Non-lucid dream
+                <option value="5">Semi-lucid dream
+                <option value="6">Lucid dream
+            </select><br>
+            Did you fall back asleep before reporting on this dream?
+            <select name="back_asleep">
+                <option selected value="0">No
+                <option value="1">Yes
+            </select><br>
+            Approximately how long before you woke up did the dream end?
+            <input type="number" name="latency" min="0" max="99" value="0"></input> min<br>
+            <hr>
+        </div>
+
+        <div id="dream_questions" style="display:none;">
+            Dream title: <input type="text" name="dream_title"><br>
+            Type out your dream experience in detail (consider <b>E-Prime</b>):<br>
+            <textarea name="dream_report" rows="10" cols="100"></textarea><br>
+            How many event transitions occured in the dream (time or scene jumps)?
+            <input type="number" name="n_transitions" min="0" max="99" value="0"></input><br>
+            Estimate the length of all combined dream events:
+            <input type="number" name="drm_length_drm_min" min="0" max="999" value="0"></input> min <input type="number" name="drm_length_drm_sec" min="0" max="60" value="0"></input> sec<br>
+            Estimate the waking length of the dream:
+            <input type="number" name="drm_length_wake_min" min="0" max="999" value="0"></input> min <input type="number" name="drm_length_wake_sec" min="0" max="60" value="0"></input> sec<br>
+            Was this a wet dream?
+            <select name="wet_dream">
+                <option selected value="0">No
+                <option value="1">Yes
+            </select><br>
+            Was this a nightmare?
+            <select name="nightmare">
+                <option selected value="0">No
+                <option value="1">Yes
+            </select><br>
+            How vivid was this dream?
+            <select name="vividness">
+                <option value="">?
+                <option value="0">Not at all
+                <option value="1">Just a little
+                <option value="2">Moderately
+                <option value="3">Pretty much
+                <option value="4">Very much
+            </select><br>
+            Was this a pre-lucid dream (asked yourself if you were dreaming and decided no)?
+            <select name="prelucid">
+                <option selected value="0">No
+                <option value="1">Yes
+            </select><br>
+            <table>
+                <tr>
+                    <th width=50% align=left>The dream consisted of...</th>
+                    <th>Not at<br>all</th>
+                    <th>Just a<br>little</th>
+                    <th>Moderately</th>
+                    <th>Pretty<br>much</th>
+                    <th>Very<br>much</th>
+                </tr>
+                <tr>
+                    <td align=left>...recent waking events.</td>
+                    <td><input type="radio" name="src_recent" value="0"></td>
+                    <td><input type="radio" name="src_recent" value="1"></td>
+                    <td><input type="radio" name="src_recent" value="2"></td>
+                    <td><input type="radio" name="src_recent" value="3"></td>
+                    <td><input type="radio" name="src_recent" value="4"></td>
+                </tr>
+                <tr>
+                    <td align=left>...distant waking events.</td>
+                    <td><input type="radio" name="src_distant" value="0"></td>
+                    <td><input type="radio" name="src_distant" value="1"></td>
+                    <td><input type="radio" name="src_distant" value="2"></td>
+                    <td><input type="radio" name="src_distant" value="3"></td>
+                    <td><input type="radio" name="src_distant" value="4"></td>
+                </tr>
+                <tr>
+                    <td align=left>...bizarre novel creations.</td>
+                    <td><input type="radio" name="src_bizarre" value="0"></td>
+                    <td><input type="radio" name="src_bizarre" value="1"></td>
+                    <td><input type="radio" name="src_bizarre" value="2"></td>
+                    <td><input type="radio" name="src_bizarre" value="3"></td>
+                    <td><input type="radio" name="src_bizarre" value="4"></td>
+                </tr>
+                <tr>
+                    <td align=left>...sensible novel creations.</td>
+                    <td><input type="radio" name="src_sensible" value="0"></td>
+                    <td><input type="radio" name="src_sensible" value="1"></td>
+                    <td><input type="radio" name="src_sensible" value="2"></td>
+                    <td><input type="radio" name="src_sensible" value="3"></td>
+                    <td><input type="radio" name="src_sensible" value="4"></td>
+                </tr>
+                <tr>
+                    <td align=left>...exogenous sensory stimuli.</td>
+                    <td><input type="radio" name="src_exogenous" value="0"></td>
+                    <td><input type="radio" name="src_exogenous" value="1"></td>
+                    <td><input type="radio" name="src_exogenous" value="2"></td>
+                    <td><input type="radio" name="src_exogenous" value="3"></td>
+                    <td><input type="radio" name="src_exogenous" value="4"></td>
+                </tr>
+                <tr>
+                    <td align=left>...endogenous sensory stimuli.</td>
+                    <td><input type="radio" name="src_endogenous" value="0"></td>
+                    <td><input type="radio" name="src_endogenous" value="1"></td>
+                    <td><input type="radio" name="src_endogenous" value="2"></td>
+                    <td><input type="radio" name="src_endogenous" value="3"></td>
+                    <td><input type="radio" name="src_endogenous" value="4"></td>
+                </tr>
+            </table><br>
+            Why do you think you had this dream? Provide personal and/or scientific reasoning.<br>
+            <textarea name="interpretation" rows="4" cols="50"></textarea>
+            <hr>
+        </div>
+
+        <div id="ld_questions" style="display:none;">
+            How aware were you that you were dreaming?
+            <select name="ld_level">
+                <option selected value="">?
+                <option value="0">not at all
+                <option value="1">a little
+                <option value="2">a lot
+                <option value="3">waking level awareness
+            </select><br>
+            Approximately how long was lucidity?
+            <input type="number" name="ld_length_min" min="0" max="99" value="0"></input>mins <input type="number" name="ld_length_sec" min="0" max="60" value="0"></input>secs<br>
+            Did you (at any point) fall back into "non-lucidity"?
+            <select name="ld_fallback">
+                <option selected value="0">No
+                <option value="1">Yes
+            </select><br>
+            Did you wake-up from non-lucidity or lucidity?
+            <select name="wakeup_source">
+                <option selected value="">?
+                <option value="0">Non-lucidity
+                <option value="1">Lucidity
+            </select><br>
+            Did you end lucidity accidentally or intentionally?
+            <select name="ld_end_source">
+                <option selected value="">?
+                <option value="0">Accident
+                <option value="1">Intentional
+            </select><br>
+            <hr>
+        </div>
+
+        <div id="MLA" style="display:none;">
+            {% include 'scales/dreaming/MLA.html' %}
+        </div>
+        <div id="DLQ" style="display:none;">
+            {% include 'scales/dreaming/DLQ.html' %}
+        </div>
+        <div id="MACE" style="display:none;">
+            {% include 'scales/dreaming/MACE.html' %}
+        </div>
+        <div id="LuCiD" style="display:none;">
+            {% include 'scales/dreaming/LuCiD.html' %}
+        </div>
+        <div id="DSR" style="display:none;">
+            {% include 'scales/dreaming/DSR.html' %}
+        </div>
+        <div id="MUSK" style="display:none;">
+            {% include 'scales/dreaming/MUSK.html' %}
+        </div>
+
+
+        <div id="end">
+            <br><br><br><hr>
+            How confident are you in these evaluations you just made?
+            <select name="confidence">
+                <option selected value="">?
+                <option value="1">Barely confident
+                <option value="2">A bit confident
+                <option value="3">Pretty confident
+                <option value="4">Very confident
+            </select><br>
+            Enter any miscellaneous comments here:<br>
+            <textarea name="comment" rows="4" cols="50"></textarea><br>
+            <input type=submit value="Save dream report">
+        </div>
+
+    </form>
+
+</body>
+
+</html>

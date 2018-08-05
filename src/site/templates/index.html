@@ -1,0 +1,12 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+</head>
+<body>
+    <p><a href="{{ url_for('wakeup') }}">Initialize new morning survey</a></p>
+    <p><a href="{{ url_for('append') }}">Append previous morning entry</a></p>
+    <p><a href="{{ url_for('postmed') }}">Initialize new post-meditation survey</a></p>
+    <p><a href="{{ url_for('quarterly') }}">Initialize new quarterly survey</a></p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Quarterly Form</title>
+    <link rel="icon" href="{{ url_for('static', filename='flavicon.png') }}">
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+
+
+<body>
+
+    <h1><center>Quarterly Form</center></h1>
+
+    <form action="{{ url_for('export',form='quarterly') }}" method="POST">
+
+        <!-- dreaming -->
+        <div id="BLA">
+            {% include 'scales/dreaming/BLA.html' %}
+        </div>
+        <div id="MADRE">
+            {% include 'scales/dreaming/MADRE.html' %}
+        </div>
+        <div id="LUSK">
+            {% include 'scales/dreaming/LUSK.html' %}
+        </div>
+
+        <!-- meditation -->
+        <div id="FMI">
+            {% include 'scales/meditation/FMI.html' %}
+        </div>
+        <div id="MAAS">
+            {% include 'scales/meditation/MAAS.html' %}
+        </div>
+        <div id="FFMQ">
+            {% include 'scales/meditation/FFMQ.html' %}
+        </div>
+        <div id="CAMSR">
+            {% include 'scales/meditation/CAMSR.html' %}
+        </div>
+        <div id="PHLMS">
+            {% include 'scales/meditation/PHLMS.html' %}
+        </div>
+        <div id="KIMS">
+            {% include 'scales/meditation/KIMS.html' %}
+        </div>
+
+        <div id="end">
+            <br><br><br><hr>
+            Enter any miscellaneous comments here:<br>
+            <textarea name="comment" rows="4" cols="50"></textarea><br>
+            <input type=submit value="Save quarterly report">
+        </div>
+
+    </form>
+
+</body>
+
+</html>
