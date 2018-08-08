@@ -24,9 +24,11 @@
     <form action="{{ url_for('report') }}" method="POST">
 
         <div id="opening_questions">
+            How many times did you wake up through the night (not including final wakeup)?
+            <input type="number" name="wakeup_count" min="0" max="99" value="0"></input><br>
             How many dreams (including white dreams and lost recalls) can you recall?
             <input type="number" name="recall_count" min="0" max="99" value="0"></input><br>
-            How did you wake up?:
+            How did you finally wake up?:
             <select name="wakeup_type">
                 <option selected value="0">Naturally
                 <option value="1">Alarm clock

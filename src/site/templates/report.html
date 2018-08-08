@@ -65,6 +65,8 @@
     <form action="{{ url_for('report') }}" method="POST">
 
         <div id="opening_questions">
+            What wakeup number is this dream from (leave 0 for final wakeup)?
+            <input type="number" name="dream_wakeup_num" min="0" max="99" value="0"></input> min<br>
             Dream type:
             <select name="dream_type" onchange="displayDreamOptions(this.value)">
                 <option selected value="">?
@@ -86,7 +88,7 @@
         </div>
 
         <div id="dream_questions" style="display:none;">
-            Dream title: <input type="text" name="dream_title"><br>
+            Dream title (optional): <input type="text" name="dream_title"><br>
             Type out your dream experience in detail (consider <b>E-Prime</b>):<br>
             <textarea name="dream_report" rows="10" cols="100"></textarea><br>
             How many event transitions occured in the dream (time or scene jumps)?
@@ -113,6 +115,12 @@
                 <option value="2">Moderately
                 <option value="3">Pretty much
                 <option value="4">Very much
+            </select><br>
+            Did you experience this dream from a third person perspective?
+            <select name="third_person">
+                <option selected value="0">No
+                <option selected value="1">Partly
+                <option selected value="2">Yes
             </select><br>
             Was this a pre-lucid dream (asked yourself if you were dreaming and decided no)?
             <select name="prelucid">
