@@ -24,7 +24,7 @@
     <form action="{{ url_for('report') }}" method="POST">
 
         <div id="opening_questions">
-            How many times did you wake up through the night (not including final wakeup)?
+            How many times did you wake up through the night (not including final or WBTB wake)?
             <input type="number" name="wakeup_count" min="0" max="99" value="0"></input><br>
             How many dreams (including white dreams and lost recalls) can you recall?
             <input type="number" name="recall_count" min="0" max="99" value="0"></input><br>
@@ -39,11 +39,16 @@
             <select name="ld_method" onchange="displayWbtbOptions(this.value)">
                 <option selected value="0">None
                 <option value="1">WBTB
+                <option value="2">failed WBTB attempt
             </select><br>
             <hr>
         </div>
 
         <div id="wbtb_questions" style="display:none;">
+            What time did you wake up (HH:MM format)?
+            <input type="text" name="wbtb_waketime"><br>
+            What time did you return to sleep (HH:MM format)?
+            <input type="text" name="wbtb_btbtime"><br>
             How long were you awake?
             <input type="number" name="wbtb_gaptime" min="0" max="999" value="0"></input> min<br>
             What mask did you use?:

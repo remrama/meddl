@@ -82,6 +82,15 @@
                 <option selected value="0">No
                 <option value="1">Yes
             </select><br>
+            Which wakeup did this come from?
+            <select name="which_wakeup">
+                <option selected value="0">Final wakeup
+                <option value="1">1st back
+                <option value="2">2nd back
+                <option value="3">3rd back
+                <option value="4">4th back
+                <option value="5">WBTB wakeup
+            </select><br>
             Approximately how long before you woke up did the dream end?
             <input type="number" name="latency" min="0" max="99" value="0"></input> min<br>
             <hr>
@@ -109,7 +118,7 @@
             </select><br>
             How vivid was this dream?
             <select name="vividness">
-                <option value="">?
+                <option selected value="">?
                 <option value="0">Not at all
                 <option value="1">Just a little
                 <option value="2">Moderately
@@ -118,9 +127,15 @@
             </select><br>
             Did you experience this dream from a third person perspective?
             <select name="third_person">
-                <option selected value="0">No
-                <option selected value="1">Partly
-                <option selected value="2">Yes
+                <option selected selected value="0">No
+                <option selected value="1">Yes
+                <option selected value="2">Partly
+            </select><br>
+            Did you experience this dream as viewing a movie (third person but no character present)?
+            <select name="movie_view">
+                <option selected selected value="0">No
+                <option selected value="1">Yes
+                <option selected value="2">Partly
             </select><br>
             Was this a pre-lucid dream (asked yourself if you were dreaming and decided no)?
             <select name="prelucid">
