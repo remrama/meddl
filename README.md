@@ -1,3 +1,3 @@
 ## meddl
 
-A long-term case study investigating the effects of meditation practice on (lucid) dream characteristics.
+An HTML tool for logging dreams (emphasis on lucidity) and meditation experiences.
